@@ -5,8 +5,16 @@ container.appendChild(element);*/
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Badge from './component/Badge';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './global.css';
 const container = document.getElementById('app');
 
-const element = <h1>Hello, Platzi Badges</h1>;
-ReactDOM.render(element, container);
+ReactDOM.render(<Badge 
+                firstName="Alandelon" 
+                lastName="Snoopy" 
+                avatarUrl="https://www.gravatar.com/avatar?d=identicon" 
+                jobTitle="Senior Fullstack Developer" 
+                twitter="aland3v" 
+                />, 
+                container); // hay que darle un <elemento/>
