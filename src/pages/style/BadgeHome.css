@@ -1,0 +1,10 @@
+.badge-home {
+    height: 93.3vh;
+    color: white;
+    background: url("../../images/stars.svg"), #1b1b25;
+    background-repeat: repeat-y;
+}
+
+.badge-home img {
+    width: 500px;
+}
