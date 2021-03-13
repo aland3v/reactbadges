@@ -1,6 +1,5 @@
 import React from "react";
 import Astronauts from "../images/astronauts.svg";
-import Stars from "../images/stars.svg";
 import HeroText from "../component/HeroText";
 import "./style/BadgeHome.css";
 
