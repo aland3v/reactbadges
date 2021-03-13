@@ -2,15 +2,15 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import "./styles/BadgesList.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Gravatar from "./Gravatar";
+
 class BadgesList extends React.Component {
     render() {
         if (this.props.badges.length === 0) {
             return (
                 <div>
-                    <h3>
-                        No Badges were found
-                    </h3>
+                    <h3>No Badges were found</h3>
                     <Link className="btn btn-primary" to="/badges/new">
                         Create new Badge
                     </Link>
@@ -24,10 +24,10 @@ class BadgesList extends React.Component {
                         <div className="card mb-3 p-1" key={badge.id}>
                             <div className="row">
                                 <div className="col-3">
-                                    <img
+                                    <Gravatar
                                         className="card-img-top rounded-circle"
-                                        src={badge.avatarUrl}
-                                        alt=""
+                                        email={badge.email}
+                                        alt="Avatar"
                                     />
                                 </div>
                                 <div className="col p-0">

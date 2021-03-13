@@ -4,4 +4,10 @@
     background: url("../../images/stars.svg"), #1b1b25;
     margin-bottom: 1rem;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.BadgeNew__hero-image {
+    max-height: 100px;
 }
