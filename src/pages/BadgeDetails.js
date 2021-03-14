@@ -1,10 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import confLogo from "../images/platziconf-logo.svg";
 import "./style/BadgeDetails.css";
 import Badge from "../component/Badge";
+import DeleteBadgeModal from "../component/DeleteBadgeModal";
 import { Link } from "react-router-dom";
+
+/**
+ * Custom hook
+ */
+function useIncreaseCount(max) {
+    const [count, setCount] = React.useState(0);
+    if (count > max) {
+        setCount(0);
+    }
+    return [count, setCount];
+}
+
 function BadgeDetails(props) {
+    const [count, setCount] = useIncreaseCount(4);
     const badge = props.badge;
     return (
         <div>
@@ -37,6 +50,9 @@ function BadgeDetails(props) {
                         <h2>Actions</h2>
                         <div>
                             <div>
+                                <button onClick={() => setCount(count + 1)} className="btn btn-primary mr-4">
+                                    Increase Count: {count}
+                                </button>
                                 <Link
                                     className="btn btn-primary mb-4"
                                     to={`/badges/${badge.id}/edit`}>
@@ -44,13 +60,13 @@ function BadgeDetails(props) {
                                 </Link>
                             </div>
                             <div>
-                                <button className="btn btn-danger">
+                                <button onClick={props.onOpenModal} className="btn btn-danger">
                                     Delete
                                 </button>
-                                {ReactDOM.createPortal(
-                                    <h1>Hola, Realmente no estoy aqui</h1>,
-                                    document.getElementById("modal")
-                                )}
+                                <DeleteBadgeModal
+                                    onDeleteBadge={props.onDeleteBadge}
+                                    onClose={props.onCloseModal}
+                                    isOpen={props.modalIsOpen} />
                             </div>
                         </div>
                     </div>
